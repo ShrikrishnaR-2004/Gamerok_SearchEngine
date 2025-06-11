@@ -2,4 +2,4 @@ from flask import Blueprint
 
 auth_bp = Blueprint('auth', __name__, url_prefix='/auth')
 
-from app.auth import routes  # This ensures routes get registered
+from app.auth import routes

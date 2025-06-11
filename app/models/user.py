@@ -2,7 +2,6 @@ from app.extensions import db
 from flask_login import UserMixin
 from werkzeug.security import generate_password_hash, check_password_hash
 
-# Association table for many-to-many relationship between users and favorite games
 favorites_table = db.Table(
     'favorites',
     db.Column('user_id', db.Integer, db.ForeignKey('user.id'), primary_key=True),
