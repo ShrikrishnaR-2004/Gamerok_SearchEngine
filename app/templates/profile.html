@@ -1,0 +1,22 @@
+<!-- templates/profile.html -->
+{% extends "base.html" %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<h2>{{ current_user.username }}'s Profile</h2>
+
+<h3>Favorites</h3>
+<ul>
+    {% for game in favorites %}
+        <li>{{ game.name }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Search History</h3>
+<ul>
+    {% for term in history %}
+        <li>{{ term }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

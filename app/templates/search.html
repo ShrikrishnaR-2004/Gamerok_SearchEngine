@@ -1,0 +1,23 @@
+<!-- templates/search.html -->
+{% extends "base.html" %}
+
+{% block title %}Search Games{% endblock %}
+
+{% block content %}
+<h2>Search Games</h2>
+<form method="GET">
+    <input type="text" id="search-input" name="q" placeholder="Search..." />
+    <button type="submit">Search</button>
+    <button type="button" id="mic-btn">🎤</button>
+</form>
+
+{% if results %}
+    <ul>
+    {% for game in results %}
+        <li><a href="{{ url_for('main.game_detail', game_id=game['id']) }}">{{ game['name'] }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No results found.</p>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,10 @@
+<!-- templates/index.html -->
+{% extends "base.html" %}
+
+{% block title %}Home | Gamerok{% endblock %}
+
+{% block content %}
+<h2>Welcome to Gamerok</h2>
+<p>Discover, explore and enjoy top trending games.</p>
+<a href="{{ url_for('main.search') }}" class="btn">Start Searching</a>
+{% endblock %}

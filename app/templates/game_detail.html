@@ -1,0 +1,28 @@
+<!-- templates/game_detail.html -->
+{% extends "base.html" %}
+
+{% block title %}{{ game.name }} | Gamerok{% endblock %}
+
+{% block content %}
+<h2>{{ game.name }}</h2>
+<img src="{{ game.image }}" alt="{{ game.name }}" style="max-width: 300px;">
+<p>{{ game.description }}</p>
+<p><strong>Genre:</strong> {{ game.genre }}</p>
+<p><strong>Rating:</strong> {{ game.rating }}</p>
+
+<form action="{{ url_for('user.add_favorite', game_id=game.id) }}" method="POST">
+    <button type="submit">Add to Favorites ❤️</button>
+</form>
+
+<h3>Reviews</h3>
+<ul>
+    {% for review in reviews %}
+        <li><strong>{{ review.user.username }}</strong>: {{ review.content }}</li>
+    {% endfor %}
+</ul>
+
+<form method="POST" action="{{ url_for('user.add_review', game_id=game.id) }}">
+    <textarea name="content" rows="3" placeholder="Write a review..."></textarea>
+    <button type="submit">Post Review</button>
+</form>
+{% endblock %}
