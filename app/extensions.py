@@ -3,11 +3,11 @@ from flask_cors import CORS
 from flask_pymongo import PyMongo
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-from app.models.user import User
+# from app.models.user import User
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+# @login_manager.user_loader
+# def load_user(user_id):
+#     return User.query.get(int(user_id))
 
 
 migrate = Migrate()
